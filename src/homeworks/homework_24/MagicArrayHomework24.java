@@ -10,16 +10,17 @@ public class MagicArrayHomework24 {
         this.array = new int[10];
     }
 
-    // Добавляет в массив один элемент
+    // Добавить один элемент в массив
     void add(int value) {
 
-        if(cursor == array.length) {
+        if (cursor == array.length) {
             expandArray();
         }
         array[cursor] = value;
         cursor++;
     }
 
+    // Расширить длину массива
     void expandArray() {
         System.out.println("Expand. Cursor = " + cursor);
 
@@ -32,31 +33,32 @@ public class MagicArrayHomework24 {
         array = newArray;
     }
 
-    // Добавление в массив нескольких значений
+    // Добавить в массив нескольких значений
     void add(int... numbers) {
         for (int i = 0; i < numbers.length; i++) {
             add(numbers[i]);
         }
     }
 
-    // Возвращает строковое представление массива
+    // Вернуть строковое представление массива
     public String toString() {
-        if(cursor == 0) return "[]";
+        if (cursor == 0) return "[]";
         String result = "[";
         for (int i = 0; i < cursor; i++) {
-            result+=array[i] + (i < cursor - 1 ? ", " : "]");
+            result += array[i] + (i < cursor - 1 ? ", " : "]");
         }
 
         return result;
     }
 
+    // Вернуть длину массива
     int size() {
         return cursor;
     }
 
-    // Возвращает значение по индексу
+    // Вернуть значение по индексу
     int get(int index) {
-        if(index >= 0 && index < cursor) {
+        if (index >= 0 && index < cursor) {
             return array[index];
         }
 
@@ -65,8 +67,9 @@ public class MagicArrayHomework24 {
         return -2147483648;
     }
 
+    // Удалить элемент массива по индексу
     int remove(int index) {
-        if(index >= 0 && index < cursor) {
+        if (index >= 0 && index < cursor) {
             int value = array[index];
             for (int i = index; i < cursor - 1; i++) {
                 array[i] = array[i + 1];
@@ -79,26 +82,30 @@ public class MagicArrayHomework24 {
         }
     }
 
+    // Вернуть индекс элемента массива по первому вхождению
     int indexOf(int value) {
         for (int i = 0; i < cursor; i++) {
-            if(array[i] == value) {
+            if (array[i] == value) {
                 return i;
             }
         }
         return -1;
     }
 
+    // Вернуть индекс элемента массива по последнему вхождению
     int lastIndexOf(int value) {
         for (int i = cursor - 1; i >= 0; i--) {
-            if(array[i] == value) {
+            if (array[i] == value) {
                 return i;
             }
         }
         return -1;
     }
 
+    // Удалить элемент массива по значению
     boolean removeByValue(int value) {
-
+        int result = remove(indexOf(value));
+        return result >= 0 && result < cursor;
     }
 }
 
@@ -110,8 +117,8 @@ public class MagicArrayHomework24 {
 4. Текущее кол-во элементов в массиве.
 5. Возвращать значение по индексу.
 6. Удаление элемента по индексу.
-
 7. Удалять элемент по значению. Возвращает boolean (true - если успешно удалено, false - если не удалось удалить).
 8. Поиск по значению. Первое вхождение.
 9. Поиск по значению. Последнее вхождение.
+10. Конструктор, принимающий обычный массив. Создать магический массив с элементами этого массива
 */

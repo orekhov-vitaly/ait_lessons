@@ -98,7 +98,7 @@ public class MagicArray {
     }
 
     boolean removeByValue(int value) {
-
+        return false;
     }
 }
 
