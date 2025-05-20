@@ -13,16 +13,12 @@ public class Homewok24 {
         System.out.println(array1.toString());
 
         array1.get(7);
-        System.out.println(array1.size());
-        System.out.println(array1.toString());
 
-        array1.indexOf(8);
-        System.out.println(array1.size());
-        System.out.println(array1.toString());
+        System.out.println(array1.indexOf(8));
+
+        System.out.println(array1.indexOf(67));
 
         array1.lastIndexOf(8);
-        System.out.println(array1.size());
-        System.out.println(array1.toString());
 
         System.out.println(array1.removeByValue(9));
         System.out.println(array1.size());
@@ -32,8 +28,12 @@ public class Homewok24 {
         System.out.println(array1.size());
         System.out.println(array1.toString());
 
-        int[] ints = {10, 20, 30, 40, 50};
+        System.out.println(array1.removeByValue(67));
+        System.out.println(array1.size());
+        System.out.println(array1.toString());
 
-        MagicArrayHomework24 magicArray = new MagicArrayHomework24();
+        int[] ints = {};
+
+        MagicArrayHomework24 magicArray = new MagicArrayHomework24(ints);
     }
 }

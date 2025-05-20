@@ -10,6 +10,15 @@ public class MagicArrayHomework24 {
         this.array = new int[10];
     }
 
+    public MagicArrayHomework24(int[] numbers) {
+        if(numbers == null || numbers.length == 0) {
+            this.array = new int[10];
+        } else {
+            this.array = new int[numbers.length * 2];
+            add(numbers);
+        }
+    }
+
     // Добавить один элемент в массив
     void add(int value) {
 
@@ -107,6 +116,17 @@ public class MagicArrayHomework24 {
         int result = remove(indexOf(value));
         return result >= 0 && result < cursor;
     }
+
+    // Массив, состоящий из элементов магического массива
+    int[] toArray() {
+        int[] result = new int[cursor];
+
+        for (int i = 0; i < cursor; i++) {
+            result[i] = array[i];
+        }
+
+        return result;
+    }
 }
 
 /*
@@ -120,5 +140,6 @@ public class MagicArrayHomework24 {
 7. Удалять элемент по значению. Возвращает boolean (true - если успешно удалено, false - если не удалось удалить).
 8. Поиск по значению. Первое вхождение.
 9. Поиск по значению. Последнее вхождение.
-10. Конструктор, принимающий обычный массив. Создать магический массив с элементами этого массива
+10. Конструктор, принимающий обычный массив. Создать магический массив с элементами этого массива.
+11. Написать метод, который будет состоять из элементов магического массива.
 */
