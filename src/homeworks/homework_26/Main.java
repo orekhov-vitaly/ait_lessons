@@ -2,7 +2,7 @@ package homeworks.homework_26;
 
 public class Main {
     public static void main(String[] args) {
-        int sum = MathUtil.sumInt(5);
+        double sum = MathUtil.sumInt(5);
         System.out.println("Summ: " + sum);
 
         sum = MathUtil.sumInt(5, 7, 0);
@@ -13,7 +13,7 @@ public class Main {
 
         System.out.println("===========\n");
 
-        int sub = MathUtil.subInt(12, 7);
+        double sub = MathUtil.subInt(12, 7);
         System.out.println("Sub: " + sub);
 
         sub = MathUtil.subInt(12, 7, -7, 5, 10);
@@ -24,7 +24,7 @@ public class Main {
 
         System.out.println("===========\n");
 
-        int mult = MathUtil.multInt(12, 7);
+        double mult = MathUtil.multInt(12, 7);
         System.out.println("Mult: " + mult);
 
         mult = MathUtil.multInt(12, 7, -7, 5, 10);
@@ -38,7 +38,7 @@ public class Main {
         double div = MathUtil.divInt(3, 2);
         System.out.println("Division: " + div);
 
-        div = MathUtil.divInt(3, 2, -1);
+        div = MathUtil.divInt(3, 0, -1);
         System.out.println("Division: " + div);
 
         div = MathUtil.divInt(null);

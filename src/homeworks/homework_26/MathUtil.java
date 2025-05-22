@@ -1,9 +1,9 @@
 package homeworks.homework_26;
 
 public class MathUtil {
-    public static int sumInt(int...integers) {
+    public static double sumInt(double...integers) {
         if(integers == null || integers.length == 0) return 0;
-        int sum = 0;
+        double sum = 0;
         for (int i = 0; i < integers.length; i++) {
             sum += integers[i];
         }
@@ -11,9 +11,9 @@ public class MathUtil {
         return sum;
     }
 
-    public static int subInt(int...integers) {
+    public static double subInt(double...integers) {
         if(integers == null || integers.length == 0) return 0;
-        int sub = 0;
+        double sub = 0;
         for (int i = 0; i < integers.length; i++) {
             if(i == 0) sub = integers[0];
             else sub -= integers[i];
@@ -22,9 +22,9 @@ public class MathUtil {
         return sub;
     }
 
-    public static int multInt(int...integers) {
+    public static double multInt(double...integers) {
         if(integers == null || integers.length == 0) return 0;
-        int mult = 1;
+        double mult = 1;
         for (int i = 0; i < integers.length; i++) {
             mult *= integers[i];
         }
@@ -32,7 +32,7 @@ public class MathUtil {
         return mult;
     }
 
-    public static double divInt(int...integers) {
+    public static double divInt(double...integers) {
         if(integers == null || integers.length == 0) return 0;
         double div = 0.0;
         for (int i = 0; i < integers.length; i++) {
