@@ -1,8 +1,8 @@
 package homeworks.homework_25;
 
 public class MagicArrayHomework25 {
-    int[] array;
-    int cursor;
+    private int[] array;
+    private int cursor;
 
     // Методы, которые будут расширять функционал массива
 
@@ -20,7 +20,7 @@ public class MagicArrayHomework25 {
     }
 
     // Добавить один элемент в массив
-    void add(int value) {
+    public void add(int value) {
 
         if (cursor == array.length) {
             expandArray();
@@ -30,7 +30,7 @@ public class MagicArrayHomework25 {
     }
 
     // Расширить длину массива
-    void expandArray() {
+    private void expandArray() {
         System.out.println("Expand. Cursor = " + cursor);
 
         int[] newArray = new int[array.length * 2];
@@ -43,7 +43,7 @@ public class MagicArrayHomework25 {
     }
 
     // Добавить в массив нескольких значений
-    void add(int... numbers) {
+    public void add(int... numbers) {
         for (int i = 0; i < numbers.length; i++) {
             add(numbers[i]);
         }
@@ -61,12 +61,12 @@ public class MagicArrayHomework25 {
     }
 
     // Вернуть длину массива
-    int size() {
+    public int size() {
         return cursor;
     }
 
     // Вернуть значение по индексу
-    int get(int index) {
+    public int get(int index) {
         if (index >= 0 && index < cursor) {
             return array[index];
         }
@@ -77,7 +77,7 @@ public class MagicArrayHomework25 {
     }
 
     // Удалить элемент массива по индексу
-    int remove(int index) {
+    public int remove(int index) {
         if (index >= 0 && index < cursor) {
             int value = array[index];
             for (int i = index; i < cursor - 1; i++) {
@@ -92,7 +92,7 @@ public class MagicArrayHomework25 {
     }
 
     // Вернуть индекс элемента массива по первому вхождению
-    int indexOf(int value) {
+    public int indexOf(int value) {
         for (int i = 0; i < cursor; i++) {
             if (array[i] == value) {
                 return i;
@@ -102,7 +102,7 @@ public class MagicArrayHomework25 {
     }
 
     // Вернуть индекс элемента массива по последнему вхождению
-    int lastIndexOf(int value) {
+    public int lastIndexOf(int value) {
         for (int i = cursor - 1; i >= 0; i--) {
             if (array[i] == value) {
                 return i;
@@ -112,13 +112,13 @@ public class MagicArrayHomework25 {
     }
 
     // Удалить элемент массива по значению
-    boolean removeByValue(int value) {
+    public boolean removeByValue(int value) {
         int result = remove(indexOf(value));
         return result >= 0 && result < cursor;
     }
 
     // Массив, состоящий из элементов магического массива
-    int[] toArray() {
+    public int[] toArray() {
         int[] result = new int[cursor];
 
         for (int i = 0; i < cursor; i++) {
