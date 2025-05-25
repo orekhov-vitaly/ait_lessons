@@ -1,4 +1,4 @@
-package homeworks.homework_26;
+package homeworks.homework_27;
 
 public class Dog {
     private String name;
@@ -27,13 +27,15 @@ public class Dog {
         return currentJumpHeight;
     }
 
-    public void train() {
+    public boolean train() {
         if (currentJumpHeight < initialJumpHeight * 2) {
             currentJumpHeight += 10;
             if (currentJumpHeight > initialJumpHeight * 2) {
                 currentJumpHeight = initialJumpHeight * 2;
             }
+            return true;
         }
+        return false;
     }
 
     public int jumpBarrier(int heightBarrier) {
