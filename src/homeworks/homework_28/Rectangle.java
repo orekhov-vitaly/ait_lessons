@@ -15,12 +15,12 @@ public class Rectangle extends Shape {
         this.height = height;
     }
 
-    public double calculateArea() {
-        return this.width * this.height;
+    public void calculateArea() {
+        System.out.println("Area: " + (this.width * this.height));
     }
 
     public void displayInfo() {
         System.out.println("Name: " + super.getName() + "\nColor: " + super.getColor());
-        System.out.println("a = " + this.width + ", b = " + this.height);
+        System.out.println("width = " + this.width + ", height = " + this.height);
     }
 }

@@ -10,13 +10,13 @@ public class Main {
         Rectangle rect1 = new Rectangle("Rectangle", "Red", 20, 10);
         rect1.setDimensions(30, 50);
         rect1.displayInfo();
-        System.out.println("S = " + rect1.calculateArea());
+        rect1.calculateArea();
         System.out.println("==============\n");
 
         Circle circle1 = new Circle("Circle", "White", 2);
         circle1.setRadius(3);
         circle1.displayInfo();
-        System.out.println("S = " + circle1.calculateArea());
+        circle1.calculateArea();
         System.out.println("==============\n");
 
         Player player = new Player("Player", 100, 10, 10);
