@@ -17,12 +17,12 @@ public class Human {
 
     private void restCalculation() {
         this.requiredRestTime += this.restTime;
+        System.out.println("Reuired rest time: " + this.requiredRestTime);
     }
 
     public void run() {
         System.out.println(this.name + " running.");
         restCalculation();
-        System.out.println("Reuired rest time: " + this.requiredRestTime);
     }
 
     @Override
