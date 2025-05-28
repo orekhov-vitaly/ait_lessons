@@ -16,11 +16,12 @@ public class BusDriver {
 
     @Override
     public String toString() {
-        return "BusDriver{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", license='" + license + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder("BusDriver: {");
+        sb.append("\n   id=").append(id);
+        sb.append(",\n   name='").append(name).append('\'');
+        sb.append(",\n   license='").append(license).append('\'');
+        sb.append("}");
+        return sb.toString();
     }
 
     public String getName() {

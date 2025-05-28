@@ -20,13 +20,13 @@ public class Autobus {
 
     @Override
     public String toString() {
-        return "Autobus{" +
-                "id=" + id +
-                ", capacity=" + capacity +
-                ", driver=" + driver.toString() +
-                ", autopilot=" + autopilot.toString() +
-                ", countPassengers=" + countPassengers +
-                '}';
+        StringBuilder sb = new StringBuilder("Autobus: {");
+        sb.append("\nid").append(id);
+        sb.append(", \ncapacity=").append(capacity);
+        sb.append(", \ndriver=").append(driver.toString());
+        sb.append(", \nautopilot=").append(autopilot.toString());
+        sb.append(", \ncountPassengers=").append(countPassengers).append("\n}");
+        return sb.toString();
     }
 
     public void updateAutopilotSoftware(String newVersion) {
@@ -34,25 +34,25 @@ public class Autobus {
     }
 
     public boolean takePassenger(Passenger passenger) {
-        if(passenger == null) return false;
+        if (passenger == null) return false;
 
-        if(countPassengers < capacity) {
-            if(isPassengerInBus(passenger)) {
-                System.out.printf("Пассажир с id %d уже в автобусе с id %d", passenger.getId(), this.id);
+        if (countPassengers < capacity) {
+            if (isPassengerInBus(passenger)) {
+                System.out.printf("Пассажир с id %d уже в автобусе с id %d\n", passenger.getId(), this.id);
                 return false;
             }
             passengers[countPassengers] = passenger;
             countPassengers++;
-            System.out.printf("Пассажир с id %d совершил посадку в автобусе с id %d", passenger.getId(), this.id);
+            System.out.printf("Пассажир с id %d совершил посадку в автобусе с id %d\n", passenger.getId(), this.id);
             return true;
         }
-        System.out.printf("Свободного места в автобусе с id %d нет", this.id);
+        System.out.printf("Свободного места в автобусе с id %d нет\n", this.id);
         return false;
     }
 
     private boolean isPassengerInBus(Passenger passenger) {
         for (int i = 0; i < countPassengers; i++) {
-            if(passenger.getId() == passengers[i].getId()) {
+            if (passenger.getId() == passengers[i].getId()) {
                 return true;
             }
         }
