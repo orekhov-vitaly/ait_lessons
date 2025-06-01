@@ -5,4 +5,8 @@ public class Dog extends Animal {
     public String toString() {
         return super.toString() + " | Dog";
     }
+
+    public void bark() {
+        System.out.println("Dog bark!");
+    }
 }
