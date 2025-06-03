@@ -12,13 +12,13 @@ public class Triangle extends Shape {
     }
 
     @Override
-    double calculatePerimeter() {
+    public double calculatePerimeter() {
         return sideA + sideB + sideC;
     }
 
     @Override
-    double calculateArea() {
-        double p = (sideA + sideB + sideC) / 2;
+    public double calculateArea() {
+        double p = calculatePerimeter() / 2;
         double resalt = Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));
         return resalt;
     }
