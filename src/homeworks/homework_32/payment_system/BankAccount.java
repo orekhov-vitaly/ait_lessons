@@ -17,19 +17,14 @@ public class BankAccount implements PaymentSystem{
     public void withdrawMoney(double amount) {
         if(amount > 0 && this.balance >= amount) {
             this.balance -= amount;
-            System.out.println("Operation completed successfully");
-            return;
         }
-        System.out.println("Operation failed");
     }
 
     @Override
     public void depositTransfer(double amount) {
-        if(amount < 0) {
-            System.out.println("Operation failed");
+        if(amount > 0) {
+            this.balance += amount;
         }
-        this.balance += amount;
-        System.out.println("Operation completed successfully");
     }
 
     @Override
@@ -38,7 +33,10 @@ public class BankAccount implements PaymentSystem{
     }
 
     @Override
-    public void transferMoney() {
-
+    public void transferMoney(PaymentSystem paymentSystem, double amount) {
+        if(amount > 0 && this.balance >= amount) {
+            this.withdrawMoney(amount);
+            paymentSystem.depositTransfer(amount);
+        }
     }
 }

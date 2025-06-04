@@ -19,5 +19,9 @@ public class Application {
         wallet.withdrawMoney(50);
         wallet.checkBalance();
         System.out.println("===========");
+
+        bank.transferMoney(wallet, 100);
+        bank.checkBalance();
+        wallet.checkBalance();
     }
 }
