@@ -22,24 +22,34 @@ public class Application {
         System.out.println(rect1.equals(rect3)); // Должно быть false
         System.out.println("==============\n");
 
-//        MyList<Rectangle> rectangles = new MyArrayList<>();
-//        rectangles.add(new Rectangle(5.0, 3.0));
-//        rectangles.add(new Rectangle(4.0, 2.0));
-//        rectangles.add(new Rectangle(5.0, 3.0)); // Дубликат
-//        rectangles.add(new Rectangle(6.0, 4.0));
-//        rectangles.add(new Rectangle(5.0, 3.0)); // Дубликат
-//
-//        System.out.println("Список до удаления дубликатов:");
-//        for (Rectangle rect : rectangles) {
-//            System.out.println(rect);
-//        }
-//
-//        Rectangle rectangleToRemove = new Rectangle(5.0, 3.0);
-//        RectangleUtils.removeDuplicates(rectangles, rectangleToRemove);
-//
-//        System.out.println("\nСписок после удаления дубликатов:");
-//        for (Rectangle rect : rectangles) {
-//            System.out.println(rect);
+        MyList<Rectangle> rectangles = new MyArrayList<>();
+        rectangles.add(new Rectangle(5.0, 3.0));
+        rectangles.add(new Rectangle(4.0, 2.0));
+        rectangles.add(new Rectangle(5.0, 3.0)); // Дубликат
+        rectangles.add(new Rectangle(6.0, 4.0));
+        rectangles.add(new Rectangle(5.0, 3.0)); // Дубликат
+
+        System.out.println("Список до удаления дубликатов:");
+        for (Rectangle rect : rectangles) {
+            System.out.println(rect);
+        }
+
+        Rectangle rectangleToRemove = new Rectangle(5.0, 3.0);
+        RectangleUtils.removeDuplicates(rectangles, rectangleToRemove);
+
+        System.out.println("\nСписок после удаления дубликатов:");
+        for (Rectangle rect : rectangles) {
+            System.out.println(rect);
+        }
+    }
+
+    public static <T extends Rectangle> void removeDuplicates(MyList<T> list, T object) {
+//        for (int i = 0; i < list; i++) {
+//            if (list[i].equals(object)) {
+//                for (int j = i; i < list - 1; i++) {
+//                    list[i] = list[i + 1];
+//                }
+//            }
 //        }
     }
 }
