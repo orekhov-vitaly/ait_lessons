@@ -14,7 +14,7 @@ public class Application {
         System.out.println(integers3);
     }
 
-    public static List<Integer> commonInts(List intList1, List intList2) {
+    public static List<Integer> commonInts(List<Integer> intList1, List<Integer> intList2) {
         List<Integer> result = new ArrayList<>(intList1);
         result.retainAll(intList2);
         return result;
