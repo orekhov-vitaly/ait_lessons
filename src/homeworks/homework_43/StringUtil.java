@@ -11,13 +11,12 @@ public class StringUtil {
         String[] words = clearedString.split("\\s+");
         // System.out.println(Arrays.toString(words));
 
-        List<String> wordsList = Arrays.asList(words);
-        // System.out.println(wordsList);
-
-        Set<String> set = new TreeSet<>(wordsList);
+        Set<String> set = new TreeSet<>(Arrays.asList(words));
 
         List<String> result = new ArrayList<>(set);
-        result.sort((w1, w2) -> w1.length() - w2.length());
+
+//        result.sort((w1, w2) -> w1.length() - w2.length());
+        result.sort(Comparator.comparing(String::length).thenComparing(Comparator.naturalOrder()));
         return result;
     }
 }

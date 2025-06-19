@@ -43,7 +43,7 @@ public class Application {
         Опционально
         Написать метод, возвращающий первый неповторяющийся символ в строке
          */
-//        String string = "abcdefj ab,cdf,";
-//        System.out.println(StrUtil.getFirstUniqueChar(string));
+        String string = "abcdefj ab,cdf,";
+        System.out.println(StrUtil.getFirstUniqueChar(string));
     }
 }
