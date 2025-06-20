@@ -1,13 +1,25 @@
 package homeworks.homework_43;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class StrUtil {
     public static Character getFirstUniqueChar(String string) {
-        List<String> stringList = new ArrayList<>(List.of(string));
-        System.out.println(stringList);
-        stringList.iterator();
-        return null;
+        SortedSet<Character> uniqueChars = new TreeSet<>();
+        Set<Character> repetitiveChars = new LinkedHashSet<>();
+
+        char[] chars = string.toCharArray();
+
+        for (char ch : chars) {
+            if (!repetitiveChars.contains(ch)) {
+                if (uniqueChars.contains(ch)) {
+                    uniqueChars.remove(ch);
+                    repetitiveChars.add(ch);
+                } else {
+                    uniqueChars.add(ch);
+                }
+            }
+        }
+
+        return uniqueChars.first();
     }
 }
