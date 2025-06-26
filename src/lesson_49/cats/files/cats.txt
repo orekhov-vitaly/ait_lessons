@@ -1,0 +1,7 @@
+Cat|9|true
+John|16|true
+Maria|8|false
+Boris|2|true
+Hanna|6|false
+Catty|5|false
+Max|3|true

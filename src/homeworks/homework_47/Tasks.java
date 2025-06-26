@@ -1,9 +1,6 @@
 package homeworks.homework_47;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 
@@ -20,12 +17,16 @@ public class Tasks {
         Из списка целых чисел выделите те значения, которые больше 10; отсортируйте эти значения по значению последней цифры в числе и выведите результат на экране
          */
         System.out.println("=== Task 1 ===");
-        List<Integer> intList = new ArrayList<>(createRandomIntList(20, 0, 20));
+        List<Integer> intList = new ArrayList<>(createRandomIntList(20, 0, 2000));
         System.out.println(intList);
 
         List<Integer> result = intList.stream()
                 .filter(i -> i > 10)
-                .sorted((i1, i2) -> i1 % 10 - i2 % 10)
+                // .sorted((i1, i2) -> i1 % 10 - i2 % 10) // Variant 1
+                // .sorted((i1, i2) -> Integer.compare(i1 % 10, i2 % 10)) // Variant 2
+                // .sorted(Comparator.comparing(i -> i % 10)) // Variant 3
+                .sorted(Comparator.<Integer>comparingInt(i -> i % 10).thenComparing(Comparator.reverseOrder())) //
+                // Variant 4
                 .collect(Collectors.toList());
 
         System.out.println(result);
@@ -38,8 +39,25 @@ public class Tasks {
         Имеется список строк. Используя Stream API, найдите строку с минимальной длиной.
          */
         System.out.println("=== Task 2 ===");
-        List<String> strings = List.of("test", "Abba", "arrow", "Arrow", "Computer", "Java", "A");
+        List<String> strings = List.of("test", "Abba", "arrow", "Arrow", "Computer", "Java");
 
+        Optional<String> opionalString = strings.stream()
+                .filter(Objects::nonNull)
+                .min(Comparator.comparing(String::length));
+
+        System.out.println(opionalString);
+
+        if (opionalString.isPresent()) {
+            System.out.println("min length string: " + opionalString.get());
+        } else {
+            System.out.println("Strings in list not finded");
+        }
+
+        System.out.println(opionalString.orElse("Something wrong"));
+
+        opionalString.ifPresent(string -> System.out.println("if present: " + string));
+        opionalString.ifPresentOrElse(str -> System.out.println("ifPresentElse: " + str), () -> System.out.println(
+                "ifPresentElse: strings not finded"));
 
         System.out.println("======\n");
     }
@@ -53,11 +71,12 @@ public class Tasks {
         List<Integer> intList = new ArrayList<>(createRandomIntList(20, 0, 20));
         System.out.println(intList);
 
-        //List<Integer> result = intList.stream()
-        //      .filter(i -> i % 2 == 0)
-        //    .forEach(i -> i*=2);
+        List<Integer> result = intList.stream()
+                .filter(i -> i % 2 == 0)
+                .map(i -> i * 2)
+                .collect(Collectors.toList());
 
-        //System.out.println(result);
+        System.out.println(result);
         System.out.println("======\n");
     }
 
